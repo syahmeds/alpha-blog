@@ -1,4 +1,4 @@
-class PagesController < ActionController::Base
+class AboutController < ApplicationController
   def home
 
   end
