@@ -3,6 +3,9 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/alpha-blog.iml" filepath="$PROJECT_DIR$/.idea/alpha-blog.iml" />
+      <module fileurl="file://$USER_HOME$/Downloads/alpha-blog-11-2017-5.1.4-master/.idea/alpha-blog-11-2017-5.1.4-master.iml" filepath="$USER_HOME$/Downloads/alpha-blog-11-2017-5.1.4-master/.idea/alpha-blog-11-2017-5.1.4-master.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../../RORSite/blog/.idea/blog.iml" filepath="$PROJECT_DIR$/../../RORSite/blog/.idea/blog.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../test_app/.idea/test_app.iml" filepath="$PROJECT_DIR$/../test_app/.idea/test_app.iml" />
     </modules>
   </component>
 </project>
