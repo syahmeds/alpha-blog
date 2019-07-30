@@ -28,17 +28,21 @@
 
         </div>
 
-        <div class="article-actions">
+        <% if logged_in? && current_user == article.user %>
 
-          <%= link_to "Edit this article", edit_article_path(article), class: "btn btn-xs btn-primary" %>
+          <div class="article-actions">
 
-          <%= link_to "Delete this article", article_path(article), method: :delete,
+            <%= link_to "Edit this article", edit_article_path(article), class: "btn btn-xs btn-primary" %>
 
-                      data: { confirm: "Are you sure you want to delete the article?"},
+            <%= link_to "Delete this article", article_path(article), method: :delete,
 
-                      class: "btn btn-xs btn-danger" %>
+                        data: { confirm: "Are you sure you want to delete the article?"},
 
-        </div>
+                        class: "btn btn-xs btn-danger" %>
+
+          </div>
+
+        <% end %>
 
       </div>
 
