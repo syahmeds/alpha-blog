@@ -7,4 +7,12 @@ class PagesController < ApplicationController
   def about
 
   end
+
+  # back-end code for pages/explore
+  def notifications
+    @posts = Post.all
+    @newPost = Post.new
+    @toFollow = User.all.last(5)
+  end
+
 end
