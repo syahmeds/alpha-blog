@@ -1,0 +1,18 @@
+- obj.each do |article|
+  .row
+    .col-xs-8.col-xs-offset-2
+      .well.well-lg
+        .article-title
+          = link_to article.title, article_path(article)
+        .article-body
+          = truncate(article.description, length: 100)
+          .article-meta-details
+            %small
+              Created by: #{article.user.username if article.user},
+              
+              \#{time_ago_in_words(article.created_at)} ago; #{article.created_at.to_formatted_s(:short)}
+        - if logged_in? && (current_user == article.user || current_user.admin?)
+          .article-actions
+            = link_to "Delete this tweet", article_path(article), method: :delete, |
+              data: { confirm: "Are you sure you want to delete the article?"},    |
+              class: "btn btn-xs btn-danger"                                       |

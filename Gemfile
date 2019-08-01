@@ -16,6 +16,8 @@ gem 'will_paginate', '~> 3.1.0'
 
 gem 'bootstrap-will_paginate', '0.0.10'
 
+gem "haml-rails", "~> 2.0"
+
 # Use Puma as the app server
 gem 'puma', '~> 3.7'
 # Use SCSS for stylesheets

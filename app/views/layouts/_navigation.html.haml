@@ -1,0 +1,33 @@
+%nav.navbar.navbar-default
+  .container-fluid
+    / Brand and toggle get grouped for better mobile display
+    .navbar-header
+      %button.navbar-toggle.collapsed{"aria-expanded" => "false", "data-target" => "#bs-example-navbar-collapse-1", "data-toggle" => "collapse", :type => "button"}
+        %span.sr-only Toggle navigation
+        %span.icon-bar
+        %span.icon-bar
+        %span.icon-bar
+      = link_to "RevTwitter", root_path, class: "navbar-brand", id: "logo"
+    / Collect the nav links, forms, and other content for toggling
+    #bs-example-navbar-collapse-1.collapse.navbar-collapse
+      %ul.nav.navbar-nav
+        - if logged_in?
+          %li
+            %a{:href => "/notifications"} Notifications
+          %li= link_to "Users", users_path
+          %li= link_to "Post", new_article_path
+      %ul.nav.navbar-nav.navbar-right
+        - if logged_in?
+          %li= link_to 'Log out', logout_path, method: :delete
+          %li.dropdown
+            %a.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button"}
+              Your Profile
+              %span.caret
+            %ul.dropdown-menu
+              %li= link_to "Edit your profile", edit_user_path(current_user)
+              %li= link_to "View your profile", user_path(current_user)
+        - else
+          %li= link_to 'Log in', login_path
+          %li= link_to 'Sign up', signup_path
+    / /.navbar-collapse
+  / /.container-fluid

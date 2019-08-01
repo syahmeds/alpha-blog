@@ -1,0 +1,19 @@
+= render 'shared/errors', obj: @article
+.row
+  .col-xs-12
+    = form_for(@article, :html => {class: "form-horizontal", role: "form"}) do |f|
+      .form-group
+        .control-label.col-sm-2
+          = f.label :title
+        .col-sm-8
+          = f.text_field :title, class: "form-control", placeholder: "Tweet Title", autofocus: true
+      .form-group
+        .control-label.col-sm-2
+          = f.label :description
+        .col-sm-8
+          = f.text_area :description, class: "form-control", placeholder: "Tweet Body", rows: 10
+      .form-group
+        .col-sm-10.col-sm-offset-2
+          = f.submit "Post tweet", class: 'btn btn-primary btn-lg'
+    .col-xs-4.col-xs-offset-4
+      [ #{link_to "Cancel request and go back", articles_path} ]
