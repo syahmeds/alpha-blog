@@ -10,18 +10,7 @@ class ArticlesController < ApplicationController
   end
 
   def notifications
-    following = Array.new
-    for @f in current_user.following do
-      following.push(@f.id)
-    end
-    # binding.pry
-    # @articles = Article.where("user_id IN (?)", following).paginate(page: params[:page], per_page: 5).order(created_at: :desc)
-    # @articles = Article.find_by_sql ["select * from (select articles.*, dense_rank()
-    #                                   over(partition by articles.user_id order by articles.updated_at desc)
-    #                                   as t_rank from articles where articles.user_id in (#{following.join(',')}))
-    #                                   as latest_articles where t_rank <= 1"]
-    @articles = Article.find_by_sql(["select * from (select articles.*, dense_rank() over(partition by articles.user_id order by articles.updated_at desc) as t_rank from articles where articles.user_id in (#{following.nil? || following.empty? ? 'NULL': following.join(',')})) as latest_articles where t_rank <= 1"]).sort_by(&:updated_at).reverse
-    # binding.pry
+    @articles = Article.sorted_latest_articles(current_user.following.ids)
     @articles = @articles.paginate(page: params[:page], per_page: 5)
   end
 

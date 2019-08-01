@@ -8,13 +8,13 @@
           %li= link_to gravatar_for(user), user_path(user)
           %li.article-title
             = link_to user.username, user_path(user)
-          - if logged_in? && !(session[:user_id] == user.id)
-            - if !User.find(session[:user_id]).following?(user)
-              = form_for(User.find(session[:user_id]).active_relationships.build) do |f|
+          - if logged_in? && !(current_user.id == user.id)
+            - if !current_user.following?(user)
+              = form_for(current_user.active_relationships.build) do |f|
                 %div= hidden_field_tag :followed_id, user.id
                 = f.submit "Follow", class: "btn btn-primary"
             - else
-              = form_for(User.find(session[:user_id]).active_relationships.find_by(followed_id: user.id), |
+              = form_for(current_user.active_relationships.find_by(followed_id: user.id), |
                 html: { method: :delete }) do |f|                                                         |
                 = f.submit "Unfollow", class: "btn btn-primary"
           %li
