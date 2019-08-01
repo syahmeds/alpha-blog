@@ -20,7 +20,7 @@
 
             <small>Created by: <%= article.user.username if article.user%>,
 
-              <%= time_ago_in_words(article.created_at) %> ago</small>
+              <%= time_ago_in_words(article.created_at) %> ago; <%= article.created_at.to_formatted_s(:short) %></small>
 
           </div>
 
