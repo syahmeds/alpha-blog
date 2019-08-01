@@ -3,7 +3,6 @@ class UsersController < ApplicationController
   before_action :set_user, only: [:edit, :update, :show]
 
   before_action :require_same_user, only: [:edit, :update, :destroy]
-  before_action :require_user, except: [:new]
   before_action :require_admin, only: [:destroy]
 
   def index
@@ -25,7 +24,7 @@ class UsersController < ApplicationController
 
       session[:user_id] = @user.id
 
-      flash[:success] = "Welcome to the alpha blog #{@user.username}"
+      flash[:success] = "Welcome to the revenge twitter app #{@user.username}"
 
       redirect_to user_path(@user)
 
