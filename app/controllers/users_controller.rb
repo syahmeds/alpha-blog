@@ -58,8 +58,9 @@ class UsersController < ApplicationController
   end
 
   def show
-
+    # binding.pry
     @user_articles = @user.articles.paginate(page: params[:page], per_page: 5)
+    # @user_articles = Article.find_by_sql(["SELECT * FROM articles WHERE user_id = ?", User.find(current_user.id)])
 
   end
 

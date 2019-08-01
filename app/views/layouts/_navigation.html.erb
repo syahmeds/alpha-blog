@@ -18,7 +18,7 @@
 
       </button>
 
-      <%= link_to "Alpha blog", root_path, class: "navbar-brand", id: "logo" %>
+      <%= link_to "RevTwitter", root_path, class: "navbar-brand", id: "logo" %>
 
     </div>
 
@@ -28,11 +28,11 @@
 
       <ul class="nav navbar-nav">
 
-        <li><a href="/notifications">Notifications </a></li>
-
-        <li><%= link_to "Users", users_path %></li>
-
         <% if logged_in? %>
+
+          <li><a href="/notifications">Notifications </a></li>
+
+          <li><%= link_to "Users", users_path %></li>
 
               <li><%= link_to "Post", new_article_path %></li>
 
