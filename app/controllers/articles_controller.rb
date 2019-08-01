@@ -2,7 +2,7 @@ class ArticlesController < ApplicationController
 
   before_action :set_article, only: [:edit, :update, :show, :destroy]
 
-  before_action :require_user, except: [:index, :show]
+  before_action :require_user
 
   before_action :require_same_user, only: [:edit, :update, :destroy]
 
@@ -11,7 +11,6 @@ class ArticlesController < ApplicationController
   end
 
   def notifications
-    # debugger
     following = Array.new
     for @f in current_user.following do
       following.push(@f.id)
@@ -23,10 +22,6 @@ class ArticlesController < ApplicationController
   def new
 
     @article = Article.new
-
-  end
-
-  def edit
 
   end
 
@@ -44,21 +39,6 @@ class ArticlesController < ApplicationController
     else
 
       render 'new'
-
-    end
-
-  end
-
-  def update
-    if @article.update(article_params)
-
-      flash[:success] = "Tweet was successfully updated"
-
-      redirect_to article_path(@article)
-
-    else
-
-      render 'edit'
 
     end
 
