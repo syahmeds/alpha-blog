@@ -6,9 +6,9 @@ git_source(:github) do |repo_name|
 end
 # Use pg for heroku database.
 gem 'pg', '~> 0.18'
-gem 'pry', '~> 0.10.3'
+gem 'pry', '~> 0.12.2'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.2.2'
+gem 'rails', '~> 5.1.7'
 
 gem 'bcrypt', '~> 3.1.7'
 
@@ -17,7 +17,7 @@ gem 'will_paginate', '~> 3.1.0'
 gem 'bootstrap-will_paginate', '0.0.10'
 gem 'haml'
 
-gem "haml-rails", "~> 1.0"
+gem "haml-rails", "~> 2.0"
 # to setup factories for testing
 gem 'factory_girl_rails', "~> 4.0"
 # Use Puma as the app server
@@ -57,7 +57,7 @@ group :development do
   # Use sqlite3 as the database for Active Record
   gem 'sqlite3'
   # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
-  gem 'web-console', '~> 2.0'
+  gem 'web-console', '~> 3.3.0'
   gem 'listen', '>= 3.0.5', '< 3.2'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
@@ -70,4 +70,5 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 group :production do
   gem 'rails_12factor'
+  gem 'rspec-rails', '~> 3.8'
 end
